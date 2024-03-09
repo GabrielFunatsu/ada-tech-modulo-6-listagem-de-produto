@@ -1,0 +1,13 @@
+.body__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.body__list {
+    width: 1150px;
+    border: 1px solid blueviolet;
+}
