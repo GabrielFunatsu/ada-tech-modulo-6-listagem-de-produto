@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import api from "./api/api";
 import { ProductItemList } from "./components/ProductItemList";
+import { SearchBar } from "./components/SearchBar";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const loadingRef = useRef(true);
 
   const getProducts = async () => {
     try {
       const { data } = await api.get(`products`);
       setProducts(data);
+      setFilteredProducts(data);
     } catch (error) {
       throw new Error(error);
+    } finally {
+      loadingRef.current = false;
     }
   };
 
@@ -20,7 +26,38 @@ function App() {
     getProducts();
   }, []);
 
-  return <ProductItemList products={products} />;
+  const handleSearch = useCallback(() => {
+    const filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [products, query]);
+
+  const handleButtonClick = () => {
+    handleSearch();
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  return (
+    <>
+      <SearchBar
+        query={query}
+        setQuery={setQuery}
+        onButtonClick={handleButtonClick}
+        onKeyDown={handleKeyPress}
+      />
+      {loadingRef.current ? (
+        <p>Carregando...</p>
+      ) : (
+        <ProductItemList products={filteredProducts} />
+      )}
+    </>
+  );
 }
 
 export default App;
