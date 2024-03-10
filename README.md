@@ -75,20 +75,12 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/147329714?v=4" width="100px;" alt="Foto do Edson no Github"/><br>
-        <sub>
-          <b>Edson Flavio</b>
-        </sub>
-      </a>
-    </td>  
-    <td align="center">
-      <a href="#">
         <img src="https://avatars.githubusercontent.com/u/139514670?v=4" width="100px;" alt="Foto do Gabriel no Github"/><br>
         <sub>
           <b>Gabriel Funatsus</b>
         </sub>
       </a>
-    </td>     
+    </td> 
     <td align="center">
       <a href="#">
         <img src="https://avatars.githubusercontent.com/u/20049294?v=4" width="100px;" alt="Foto do Juscelino Messias no Github"/><br>
@@ -97,10 +89,20 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/147329714?v=4" width="100px;" alt="Foto do Edson no Github"/><br>
+        <sub>
+          <b>Edson Flavio</b>
+        </sub>
+      </a>
+    </td>     
 </table>
 
-### Resultado Final <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">: 
+### Resultado Final: 
 
 Clone nosso repositório e dê uma olhadinha: https://github.com/GabrielFunatsu/ada-tech-modulo-6-listagem-de-produto.git
+
+<img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
 
 
