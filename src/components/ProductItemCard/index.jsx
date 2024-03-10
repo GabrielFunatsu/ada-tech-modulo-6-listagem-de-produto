@@ -4,7 +4,9 @@ import './styles.css';
 const ProductItemCard = ({ product }) => {
   return (
     <div>
-      <h3>{product.title}</h3>
+      <ul>
+        <li className="subscription__description">{product.title}</li>
+      </ul>
     </div>
   );
 };

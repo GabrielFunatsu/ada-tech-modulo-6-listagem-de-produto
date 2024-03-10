@@ -12,18 +12,18 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background: #312613;
-  background: linear-gradient(1deg,#312613 0%, #000000 80%);
-  background: -webkit-linear-gradient(1deg,#312613 0%, #000000 80%);
-  background: -moz-linear-gradient(1deg,#312613 0%, #000000 80%);
-  
-  color: #ffffff;
+  // background: #312613;
+  // background: linear-gradient(1deg,#312613 0%, #000000 80%);
+  // background: -webkit-linear-gradient(1deg,#312613 0%, #000000 80%);
+  // background: -moz-linear-gradient(1deg,#312613 0%, #000000 80%);
+  background: #bcbcbc;
+  color: #000000;
 }
 
 :root {
   --primary-color: #020228;
-  --secondary-color: #f7b84b;
-  --tertiary-color: #000000;
+  --secondary-color: #ff87b7;
+  --tertiary-color: #4f4f4f;
   
   --btn-bg-color-gradient: linear-gradient(
     45deg,

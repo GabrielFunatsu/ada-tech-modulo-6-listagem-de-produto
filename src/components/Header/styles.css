@@ -7,14 +7,12 @@ header {
     height: 100px;
     position: fixed;
     top: 0;
-    background: #000000;
+    background: #4f4f4f;
     z-index: 1;
-    border: 1px solid red;
 }
 
 header .header__content {
     width: 1150px;
-    border: 1px solid blue;
 }
 
 header .header__content nav {
