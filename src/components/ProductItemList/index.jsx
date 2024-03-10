@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import './styles.css';
 
@@ -27,7 +27,7 @@ const ProductItemList = ({ products }) => {
     setSelectedProductIndex((prevIndex) => (prevIndex - 1 + products.length) % products.length);
   };
 
-  const MemoizedProductItemCard = React.memo(ProductItemCard);
+  const MemoizedProductItemCard = useMemo(() => React.memo(ProductItemCard), []);
 
   return (
     <div>
