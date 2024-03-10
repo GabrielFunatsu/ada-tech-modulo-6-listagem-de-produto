@@ -1,21 +1,28 @@
 import PropTypes from "prop-types";
+import "./styles.css";
 
-const SearchBar = ({ query, setQuery, onButtonClick, onKeyDown }) => {
+const SearchBar = ({ leftIcon, query, setQuery, onButtonClick, onKeyDown }) => {
   return (
-    <div>
+    <div className="input-container">
+      {leftIcon && <div className="icon-container">{leftIcon}</div>}
+
       <input
+        className="barra-de-pesquisa"
         type="text"
-        placeholder="Pesquisar..."
+        placeholder="Pesquisar produto..."
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        onChange={({ target: { value } }) => setQuery(value)}
         onKeyDown={onKeyDown}
       />
-      <button onClick={onButtonClick}>Search</button>
+
+      <button onClick={onButtonClick}>Pesquisar</button>
+
     </div>
   );
 };
 
 SearchBar.propTypes = {
+  leftIcon: PropTypes.element,
   query: PropTypes.string.isRequired,
   setQuery: PropTypes.func.isRequired,
   onButtonClick: PropTypes.func.isRequired,
