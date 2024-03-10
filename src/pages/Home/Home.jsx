@@ -48,7 +48,7 @@ const Home = () => {
         <div className="body__content">
           <div className="body__list">
             {loadingRef.current ? (
-              <p>Carregando...</p>
+              <p className="carregando">Carregando...</p>
             ) : (
               <ProductItemList products={filteredProducts} />
             )}
