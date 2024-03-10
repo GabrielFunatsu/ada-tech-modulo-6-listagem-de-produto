@@ -15,7 +15,7 @@ const Home = () => {
     FilteredProductsContext
   );
   const [products, setProducts] = useState([]);
-  const loadingRef = useRef(true);
+  const [loading, setLoading] = useState(true);
 
   const getProducts = async () => {
     try {
@@ -25,7 +25,7 @@ const Home = () => {
     } catch (error) {
       throw new Error(error);
     } finally {
-      loadingRef.current = false;
+      setLoading (false);
     }
   };
 
@@ -47,7 +47,7 @@ const Home = () => {
       <div>
         <div className="body__content">
           <div className="body__list">
-            {loadingRef.current ? (
+            {loading ? (
               <p className="carregando">Carregando...</p>
             ) : (
               <ProductItemList products={filteredProducts} />
