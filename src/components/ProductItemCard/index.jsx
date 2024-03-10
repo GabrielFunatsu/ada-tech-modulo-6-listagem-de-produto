@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 import './styles.css';
 
-const ProductItemCard = ({ product }) => {
+const ProductItemCard = ({ product, onClick }) => {
   return (
     <div>
       <ul>
-        <li className="subscription__description">{product.title}</li>
+        <li className="subscription__description" onClick={onClick}>
+          {product.title}
+        </li>
       </ul>
     </div>
   );
@@ -13,6 +15,30 @@ const ProductItemCard = ({ product }) => {
 
 ProductItemCard.propTypes = {
   product: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export { ProductItemCard };
+
+
+
+
+
+// import PropTypes from "prop-types";
+// import './styles.css';
+
+// const ProductItemCard = ({ product }) => {
+//   return (
+//     <div>
+//       <ul>
+//         <li className="subscription__description">{product.title}</li>
+//       </ul>
+//     </div>
+//   );
+// };
+
+// ProductItemCard.propTypes = {
+//   product: PropTypes.object.isRequired,
+// };
+
+// export { ProductItemCard };

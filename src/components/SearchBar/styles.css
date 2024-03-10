@@ -37,7 +37,7 @@
     margin-right: 15px;
 }
   
-  .barra-de-pesquisa::placeholder {
+.barra-de-pesquisa::placeholder {
     font-family: 'Open Sans';
     font-style: normal;
     font-size: 14px;
