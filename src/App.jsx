@@ -4,27 +4,24 @@ import "./App.css";
 // import { ProductItemList } from "./components/ProductItemList";
 // import { SearchBar } from "./components/SearchBar";
 
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
 import { Home } from "./pages/Home/Home";
+import { HomeWrapper } from "./pages/Home/HomeWrapper";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        
         <GlobalStyle />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />        
-        </Routes>
 
+        <Routes>
+          <Route path="/" element={<HomeWrapper />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
 
 // function App() {
 //   const [products, setProducts] = useState([]);
