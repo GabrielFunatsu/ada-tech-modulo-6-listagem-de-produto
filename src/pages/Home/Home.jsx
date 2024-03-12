@@ -1,41 +1,24 @@
 import "./styles.css";
 
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext } from "react";
 import "../../App.css";
-import api from "../../api/api";
 import { ProductItemList } from "../../components/ProductItemList";
 
 import { Header } from "../../components/Header/Header.jsx";
-import {
-  FilteredProductsContext,
-} from "../../components/FilteredProductsContext/index.jsx";
+import { FilteredProductsContext } from "../../components/FilteredProductsContext/index.jsx";
+
+import { useFetch } from "../../hooks/useFetch.jsx";
 
 const Home = () => {
   const { filteredProducts, setFilteredProducts } = useContext(
     FilteredProductsContext
   );
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  const getProducts = async () => {
-    try {
-      const { data } = await api.get(`products`);
-      setProducts(data);
-      setFilteredProducts(data);
-    } catch (error) {
-      throw new Error(error);
-    } finally {
-      setLoading (false);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const { data, loading } = useFetch("products", setFilteredProducts);
 
   return (
     <>
-      <Header products={products} />
+      <Header products={data} />
 
       <br />
       <br />

@@ -1,21 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
 import "../../App.css";
 import logo from "../../assets/imagens/logo-fake-store.png";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../../components/SearchBar";
-import { SearchContext } from "../SearchContext";
 import { FilteredProductsContext } from "../FilteredProductsContext";
 
 const Header = ({ products }) => {
-  const { query, setQuery } = useContext(SearchContext);
+  const [searchTerm, setSearchTerm] = useState("");
   const { setFilteredProducts } = useContext(FilteredProductsContext);
 
   const handleSearch = () => {
     const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(query.toLowerCase())
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
     setFilteredProducts(filtered);
   };
 
@@ -36,18 +36,14 @@ const Header = ({ products }) => {
           <nav>
             <figure>
               <Link to="/">
-                <img
-                  src={logo}
-                  alt="Fake Store"
-                  title="Fake Store"
-                />
+                <img src={logo} alt="Fake Store" title="Fake Store" />
               </Link>
             </figure>
 
             <div className="nav__button">
               <SearchBar
-                query={query}
-                setQuery={setQuery}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
                 onButtonClick={handleButtonClick}
                 onKeyDown={handleKeyPress}
               />

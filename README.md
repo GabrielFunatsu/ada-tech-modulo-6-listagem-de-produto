@@ -28,17 +28,22 @@ Este projeto consiste em uma aplicação web construída com React para exibir u
 
 ### Estrutura do Projeto
 
-1. Componentes: 
- - Header.jsx:Componenet responsável pelo cabecário da página.
- - ProductItemList.jsx: Componente responsável pela listagem de produtos.
- - ProductItemCard.jsx: Componente para exibir cada item na lista.
- - ProductModal.jsx: Componente do modal para detalhes do produto.
- - SearchBar.jsx: Componente do campo de pesquisa.
- - SearchContext.jsx: Componente do contexto.
+1. Componentes:
 
- 2. Páginas:
-  - Home.jsx
-  - HomeWrapper.jsx
+- Header.jsx:Componenet responsável pelo cabecário da página.
+- ProductItemList.jsx: Componente responsável pela listagem de produtos.
+- ProductItemCard.jsx: Componente para exibir cada item na lista.
+- ProductModal.jsx: Componente do modal para detalhes do produto.
+- SearchBar.jsx: Componente do campo de pesquisa.
+- FilteredProductsContext.jsx: Contexto do produtos filtrados através da pesquisa.
+
+2. Páginas:
+
+- Home.jsx
+
+3. Hooks:
+
+- useFetch.jsx
 
 ### Uso de Hooks
 
@@ -49,6 +54,8 @@ Este projeto consiste em uma aplicação web construída com React para exibir u
 3. useContext: Utilizado para criar o contexto.
 
 4. useMemo: Utilizado para memorizar o componente ProductItem e evitar renderizações desnecessárias.
+
+5. useFetch: Utilizado para a requisição de dados da API para a listagem dos produtos.
 
 ## Contexto
 
@@ -62,11 +69,12 @@ Este projeto foi desenvolvido utilizando o Vite como ambiente de desenvolvimento
 ### ☕ Observações
 
 ### A aplicação será avaliada com base nos seguintes critérios:
+
 - Cumprimento dos requisitos: A aplicação deve atender a todos os requisitos especificados.
 - Implementação: A aplicação deve estar bem implementada, usando as técnicas e conceitos corretos.
 - Funcionalidade: A aplicação deve ser funcional e atender aos requisitos do usuário.
 - Design: A aplicação deve ser bem projetada, usando uma estética agradável e fácil de usar.
-  
+
 ### 🤝 Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
@@ -99,10 +107,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>     
 </table>
 
-### Resultado Final: 
+### Resultado Final:
 
 Clone nosso repositório e dê uma olhadinha: https://github.com/GabrielFunatsu/ada-tech-modulo-6-listagem-de-produto.git
 
 <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
-
-
