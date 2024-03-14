@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
-import "./styles.css";
+import styles from "./styles.module.css";
 
 import { ProductItemCard } from "../ProductItemCard";
-import { ProductModal } from "../ProductModal/ProductModal";
+import { ProductModal } from "../ProductModal";
 
 const ProductItemList = ({ products }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -36,7 +36,7 @@ const ProductItemList = ({ products }) => {
 
   return (
     <div>
-      <ul>
+      <ul className={styles.list}>
         {products.map((product, index) => (
           <MemoizedProductItemCard
             key={product.id}

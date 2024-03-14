@@ -1,10 +1,10 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "../../App.css";
-import { ProductItemList } from "../../components/ProductItemList";
+import { ProductItemList } from "../../components/ProductItemList/index.jsx";
 
-import { Header } from "../../components/Header/Header.jsx";
+import { Header } from "../../components/Header/index.jsx";
 import { FilteredProductsContext } from "../../components/FilteredProductsContext/index.jsx";
 
 import { useFetch } from "../../hooks/useFetch.jsx";
@@ -14,7 +14,11 @@ const Home = () => {
     FilteredProductsContext
   );
 
-  const { data, loading } = useFetch("products", setFilteredProducts);
+  const { data, loading } = useFetch("products");
+
+  useEffect(() => {
+    setFilteredProducts(data);
+  }, [data]);
 
   return (
     <>
@@ -28,10 +32,10 @@ const Home = () => {
       <br />
 
       <div>
-        <div className="body__content">
-          <div className="body__list">
+        <div className={styles.body__content}>
+          <div className={styles.body__list}>
             {loading ? (
-              <p className="carregando">Carregando...</p>
+              <p className={styles.carregando}>Carregando...</p>
             ) : (
               <ProductItemList products={filteredProducts} />
             )}

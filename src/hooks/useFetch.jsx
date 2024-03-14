@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/api";
 
-const useFetch = (query, setFilteredData) => {
+const useFetch = (query) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -9,7 +9,6 @@ const useFetch = (query, setFilteredData) => {
     try {
       const { data } = await api.get(query);
       setData(data);
-      setFilteredData(data);
     } catch (error) {
       throw new Error(error);
     } finally {

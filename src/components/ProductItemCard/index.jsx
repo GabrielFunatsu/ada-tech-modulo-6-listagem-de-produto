@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import "./styles.css";
+import styles from "./styles.module.css";
 
 const ProductItemCard = ({ product, onClick }) => {
   return (
     <div>
       <ul>
-        <li className="subscription__description" onClick={onClick}>
+        <li className={styles.subscription__description} onClick={onClick}>
           {product.title}
         </li>
       </ul>

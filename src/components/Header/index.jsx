@@ -1,38 +1,27 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./styles.css";
+import styles from "./styles.module.css";
 import "../../App.css";
 import logo from "../../assets/imagens/logo-fake-store.png";
 import { Link } from "react-router-dom";
-import { SearchBar } from "../../components/SearchBar";
+import { SearchBar } from "../SearchBar";
 import { FilteredProductsContext } from "../FilteredProductsContext";
+import { useFilter } from "../../hooks/useFilter";
 
 const Header = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const { setFilteredProducts } = useContext(FilteredProductsContext);
 
-  const handleSearch = () => {
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const { filtered } = useFilter(products, searchTerm, "title");
 
+  useEffect(() => {
     setFilteredProducts(filtered);
-  };
-
-  const handleButtonClick = () => {
-    handleSearch();
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  };
+  }, [filtered]);
 
   return (
     <>
       <header>
-        <div className="header__content">
+        <div className={styles.header__content}>
           <nav>
             <figure>
               <Link to="/">
@@ -40,12 +29,10 @@ const Header = ({ products }) => {
               </Link>
             </figure>
 
-            <div className="nav__button">
+            <div className={styles.nav__button}>
               <SearchBar
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
-                onButtonClick={handleButtonClick}
-                onKeyDown={handleKeyPress}
               />
             </div>
           </nav>

@@ -1,27 +1,17 @@
 import PropTypes from "prop-types";
-import "./styles.css";
+import styles from "./styles.module.css";
 
-const SearchBar = ({
-  leftIcon,
-  searchTerm,
-  setSearchTerm,
-  onButtonClick,
-  onKeyDown,
-}) => {
+const SearchBar = ({ searchTerm, setSearchTerm }) => {
   return (
-    <div className="input-container">
-      {leftIcon && <div className="icon-container">{leftIcon}</div>}
+    <div className={styles["input-container"]}>
 
       <input
-        className="barra-de-pesquisa"
+        className={styles["barra-de-pesquisa"]}
         type="text"
         placeholder="Pesquisar produto..."
         value={searchTerm}
         onChange={({ target: { value } }) => setSearchTerm(value)}
-        onKeyDown={onKeyDown}
       />
-
-      <button onClick={onButtonClick}>Pesquisar</button>
     </div>
   );
 };
@@ -30,8 +20,6 @@ SearchBar.propTypes = {
   leftIcon: PropTypes.element,
   searchTerm: PropTypes.string.isRequired,
   setSearchTerm: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
 };
 
 export { SearchBar };

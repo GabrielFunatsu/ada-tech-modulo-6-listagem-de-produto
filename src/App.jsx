@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
-import { Home } from "./pages/Home/Home";
+import { Home } from "./pages/Home";
 import { FilteredProductsProvider } from "./components/FilteredProductsContext";
 
 function App() {
